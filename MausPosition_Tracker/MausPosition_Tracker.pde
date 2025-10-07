@@ -32,7 +32,7 @@ void draw() {
       line(x, 100 + off, x, 159 * off);
 
       text(str(x), x, 100, 100, 100);
-      kijioio
+      
     }
   }
 }
