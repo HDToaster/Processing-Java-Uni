@@ -20,6 +20,10 @@ void draw() {
 
   fill(255);
   ellipse(mouseX, mouseY, 20, 20);
+  
+  textSize(23);
+  fill(255,0,255);
+  text(str(mouseX) + " , " + str(mouseY), mouseX + 10, mouseY + 30);
   for (int x = 0; x < width; x++)
   {
     off ++;
