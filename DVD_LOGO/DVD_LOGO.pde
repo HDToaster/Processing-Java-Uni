@@ -28,11 +28,13 @@ void draw()
 void drawDVD(){
   moveDVD();
   
-  
+  //HERE
   //rectMode(CENTER);
   float div = width / 255;
-  tint(xPos / div, 0.0f, yPos / div);
+  tint(xPos * div, 0.0f, yPos / div,255);
   image(sprite, xPos, yPos);
+  
+ 
 }
 void moveDVD()
 {
