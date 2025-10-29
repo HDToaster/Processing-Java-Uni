@@ -1,0 +1,125 @@
+
+PVector[] p;
+
+int num = 0;
+
+void setup() {
+  size(800, 800);
+  p = new PVector[1];
+}
+
+void draw() {
+  background(0);
+  for (int i = 0; i < num; i++) {
+    fill(255);
+    noStroke();
+    circle(p[i].x, p[i].y, 15);
+    if (i > 0) {
+      stroke(255);
+      strokeWeight(1);
+      line(p[i-1].x, p[i-1].y, p[i].x, p[i].y);
+    }
+  }
+}
+
+void mousePressed() {
+  if (mouseButton == LEFT) {
+    if (num == 0) {
+      p[num] = new PVector(mouseX, mouseY);
+
+      num++;
+    }
+
+    if (p.length >= num) {
+      PVector[] p2 = new PVector[num*2];
+      for (int i = 0; i < num; i++) {
+        p2[i] = p[i];
+      }
+      p = p2;
+    }
+
+    p[num] = new PVector(mouseX, mouseY);
+    num++;
+    println(num);
+  } else if (mouseButton == RIGHT){
+    int lastIndexFound = -1;
+    for (int i = 0; i < num; i++) {
+      float dist = p[i].dist(new PVector(mouseX, mouseY));
+      if (dist < 15) {
+        lastIndexFound = i;
+      }
+    }
+    
+    if(lastIndexFound != -1){
+      if (num < 2){
+        p[0] = null;
+        num = 0;
+      }else{
+      for (int i = lastIndexFound; i < num-1;i++){
+        p[i] = new PVector(p[i+1].x,p[i+1].y);
+      }}
+      
+      num--;num = constrain(num, 0, p.length+1);
+      println("index was: "+lastIndexFound);
+      println(num);
+    }
+  }
+}
+
+void keyPressed() {
+  if (keyCode == LEFT) {
+    for (int i = 0; i < num; i++) {
+      p[i].x --;
+    }
+  }
+  if (keyCode == RIGHT)
+  {
+    for (int i = 0; i < num; i++) {
+      p[i].x ++;
+    }
+  }
+  if (keyCode == UP) {
+    for (int i = 0; i < num; i++) {
+      p[i].y --;
+    }
+  }
+  if (keyCode == DOWN)
+  {
+    for (int i = 0; i < num; i++) {
+      p[i].y ++;
+    }
+  }
+
+  if (keyCode ==BACKSPACE) {
+    if (num < 3) {
+      p[0] = null;
+      num = 0;
+    } else if (num >=3) {
+      p[num] = null;
+      num--;
+      num = constrain(num, 0, p.length+1);
+    }
+  }
+}
+PVector offset = new PVector(width,height);
+float scale = 1;
+
+
+void mouseWheel(MouseEvent event)
+{
+  float e = event.getCount();
+  scale+=e / 7;
+  scale = constrain(scale,1,100);
+  for (int i = 0; i < num; i++){
+  PVector tempP = new PVector(p[i].x,p[i].y);
+  tempP = tempP.add(offset);
+  tempP = tempP.mult(scale);
+  tempP = tempP.sub(offset.mult(1/scale));
+  
+  p[i] = tempP;
+  
+  print("zoom"+scale);
+  
+  }
+  println(e);
+}
