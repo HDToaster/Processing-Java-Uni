@@ -2,13 +2,15 @@
 
 void setup()
 {
-  size(800,800);
-  frameRate(10);
-  xPos = width / 2 + 50;
-  yPos = height / 2;
-  
+  size(800, 600);
+  frameRate(20);
+  xPos = width / 2 + 100;
+  yPos = height - 100;
+
   sprite =loadImage(path);
-  sprite.resize(50,50);
+  sprite.resize(50, 50);
+  sprite.filter(INVERT);
+  
 }
 PImage sprite;
 String path = "dvd-logo-png-19252.png";
@@ -17,24 +19,46 @@ float xPos;
 float yPos;
 float xSpeed = 1;
 float ySpeed = 1;
+int dvdSize = 40;
 float speedMult = 5;
 void draw()
 {
-  
+  sprite =loadImage(path);
+  sprite.resize(50, 50);
+  sprite.filter(INVERT); 
+  moveDVD();
   drawDVD();
-  
 }
 
-void drawDVD(){
-  moveDVD();
-  
+
+
+void drawDVD() {
+
+
   //HERE
   //rectMode(CENTER);
   float div = width / 255;
-  tint(xPos * div, 0.0f, yPos / div,255);
-  image(sprite, xPos, yPos);
+
+
+
+  //PImage spriteTemp = sprite.tint(int(xPos),20,int(yPos));
+  //PImage temp = loadImage(path);
+  //temp.resize();
+  PImage temp = sprite;
+  int dimensions = sprite.width * sprite.height;
+  temp.loadPixels();
   
- 
+  
+  
+  for (int i=0; i < dimensions;i+=1)
+{
+  
+  
+  if (temp.pixels[i] >= color(253) && temp.pixels[i] < 50){
+    temp.pixels[i] = color(xPos / 3, 255 - xPos / 3 - yPos/3 ,yPos / 3);
+  }
+}temp.updatePixels();
+  image(temp, xPos, yPos);
 }
 void moveDVD()
 {
@@ -43,28 +67,28 @@ void moveDVD()
   xPos += xSpeed * speedMult;
   yPos += ySpeed * speedMult;
   //right x >
-  if (xPos >= width)
+  if (xPos + dvdSize >= width)
   {
     xSpeed *= -1;
-    xPos = width;
+    xPos = width - dvdSize;
   }
-  
+
   //left x < 0
   if (xPos <= 0)
-    {
-  xSpeed *= -1;
+  {
+    xSpeed *= -1;
     xPos = 0;
   }
   //top
   if (yPos <= 0)
-    {
-  ySpeed *= -1;
+  {
+    ySpeed *= -1;
     yPos = 0;
   }
   //bottom y > height
-  if (yPos >= height)
-    {
-  ySpeed *= -1;
-    yPos = height;
+  if (yPos+dvdSize >= height)
+  {
+    ySpeed *= -1;
+    yPos = height-dvdSize;
   }
 }
