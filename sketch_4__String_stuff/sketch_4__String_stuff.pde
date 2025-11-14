@@ -5,6 +5,7 @@ PVector v2 = new PVector(3, 2);
 
 String hi = "hello world";
 
+//4.3.c
 
 //String n1 = "hi peterson";
 //String n2 = "hit peterson";
@@ -21,6 +22,7 @@ int counter = 0;
 
 void setup() {
 
+  //4 2a
   v1.sub(v2);
   v1.add(v2);
   println(v1);
@@ -38,6 +40,8 @@ void setup() {
 
 void draw(){}
 
+
+//4.3.d
 void mousePressed() {
   background(0);
   textAlign(CENTER);
