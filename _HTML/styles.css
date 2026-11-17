@@ -1,0 +1,14 @@
+.paragraph {
+    font-family: monospace, sans-serif;
+    font-size: 18px;
+}
+
+#mainheader {
+font-size:42px;
+font-family: monospace, sans-serif;
+}
+
+#contactFieldPara {
+    font-style: bold;
+    font-size: 24px;
+}

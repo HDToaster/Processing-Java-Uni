@@ -1,0 +1,63 @@
+.container{
+    display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: stretch;
+
+
+    border: 2px groove black;
+
+ 
+
+}
+
+.item{
+   
+    padding: 30px;
+   border: 2px groove black;
+
+}
+
+.a{
+    flex-grow:1;
+}
+.b{
+    flex-grow:2;
+}
+.c{
+    flex-grow:0;
+}
+
+
+
+.container2{
+    border: 1px solid black;
+    padding:30px;
+}
+
+.item2{
+    border: 1px solid black;
+    position: relative;
+    left: 0;
+
+}
+
+.a2{
+
+    left:20px;
+ 
+}.b2{
+   left:0px;
+    right: 0px;
+    top:5px;
+}
+.c2{
+    top:20px;
+    left:0px;
+    right: 0px;
+}
+.d2{
+    position: absolute;
+    left:0px;
+    bottom: 0px;
+}

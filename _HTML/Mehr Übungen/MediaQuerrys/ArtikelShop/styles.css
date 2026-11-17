@@ -1,0 +1,51 @@
+.container{
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 30px;
+
+    align-items: center;
+
+  
+}
+
+
+.item{
+    width: 150px;
+    height:75px;
+
+    border: 1px solid black;
+
+    text-align:center;
+
+
+    margin: 12px auto;
+    padding: 10px 80px;
+
+    transform:scale(1);
+}
+
+
+
+.item:hover{
+    border: 1px dashed black;
+    transform: scale(1.06);
+}
+
+@keyframes itemanim{
+    0% {transform: scale(1); }
+    100% {transform:  scale(1.5);}
+}
+
+.nametx{
+
+}
+
+.item.new::after{
+    content: "Neu";
+    position: absolute;
+    right: 3px;
+    top:3px;
+    border: 1px solid black;
+}

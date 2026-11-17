@@ -1,0 +1,22 @@
+
+
+.box{
+
+    border: 2px solid;
+    height: 20rem;
+    width: 30px;
+}
+
+.left{
+
+    float:left;
+
+}
+
+#right{
+
+    float: right;
+    background-color: red;
+    color: white;
+
+}

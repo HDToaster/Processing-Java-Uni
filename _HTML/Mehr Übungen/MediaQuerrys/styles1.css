@@ -1,0 +1,61 @@
+
+.container{
+
+    display:flex;
+    flex-direction:column;
+
+    align-items: center;
+
+    justify-content: space-between;
+    border: 1px solid black;
+    gap:12px;
+}
+
+.item{
+    width:15em;
+    height:1.3em;
+     text-align:center;
+}
+
+@media (min-width: 768px) and (orientation: landscape)
+{
+    .landscapeb{
+         background-color:red;
+        border: 2px solid black;
+        border-radius: 14px;
+       
+       
+    }
+}
+
+@media (max-width: 768px) and (orientation: landscape){
+    .landscapes{
+        background-color:red;
+        border: 2px solid black;
+        border-radius: 14px;
+   
+          
+    }
+}
+
+
+@media (min-width: 768px) and (orientation: portrait)
+{
+    .portraitb{
+        background-color:red;
+        border: 2px solid black;
+        border-radius: 14px;
+    
+         
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait){
+     .portraits{
+        background-color:red;
+        border: 2px solid black;
+        border-radius: 14px;
+
+        
+    }
+}

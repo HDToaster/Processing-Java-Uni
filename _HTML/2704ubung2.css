@@ -1,0 +1,56 @@
+
+.container{
+    border-color: black;
+    border-style: solid;
+
+}
+
+#headerContainer{
+    background-color:rgb(198, 107, 107);
+
+    
+    border: 1px solid;
+    
+
+}
+
+#layoutContainer{
+    margin: 1rem;
+    
+}
+
+#box{
+    
+    font-style:italic;
+}
+
+ #left {
+    margin:0rem;
+    width: 3rem;
+    height: 9rem;
+    background-color:rgb(143, 183, 218);
+    float: left;
+}
+
+#right {
+    margin:0rem;
+
+    width: 3rem;
+    height: 9rem;
+
+    background-color:rgb(117, 210, 148);
+    float:right;
+}
+
+#mid{
+    font-style:oblique;
+
+}
+
+#footer{
+
+    clear: both;
+    background-color:rgb(224, 154, 48);
+
+    border: 1px solid;
+}

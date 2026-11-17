@@ -1,0 +1,12 @@
+.myForm{
+    display: flex;
+    gap:0;
+
+    flex-direction: column;
+    width:12em;
+}
+
+#emailinp{
+    background-color: rgb(229, 112, 112);
+
+}

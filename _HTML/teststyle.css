@@ -1,0 +1,14 @@
+p{color:blueviolet;
+    font-size: large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow', sans-serif;
+}
+
+#testDiv > p{
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+
+.border{
+    border: 2px solid black;
+}

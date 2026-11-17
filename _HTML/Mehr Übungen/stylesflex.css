@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: stretch;
+
+    flex-wrap: wrap;
+
+    gap: 20px;
+}
+
+.item{
+    border: 1px solid black;
+
+    justify-content: center;
+    text-align: center;
+
+    padding:50px;
+}

@@ -1,0 +1,28 @@
+
+
+.container {
+    background-color: pink;
+    display: grid;
+
+    grid-template-columns: repeat(1fr);
+    grid-template-rows: auto;
+
+    gap:20px;
+
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.item {
+    grid-row:1/-1;
+    grid-column:auto;
+
+    text-align: center;
+    justify-content:center;
+
+    border: inherit;
+
+    width: 100px;
+    height:100px;
+}

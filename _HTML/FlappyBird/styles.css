@@ -1,0 +1,58 @@
+* {
+
+    padding: 0;
+    margin: 0; 
+
+}
+
+#game{
+    width: 500px;
+    height: 500px;
+    background-color: black;
+    border: 1px solid black;
+    margin: auto;
+    overflow: show;
+}
+
+#character
+{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    position: relative;
+    top: 200px;
+    left: 100px;
+}
+
+#hole {
+width:50px;
+height: 50px;
+background-color: white;
+position: relative;
+left: 450px;
+animation: hole 3s infinite linear ;
+}
+
+
+
+
+
+#block {
+    width: 50px;
+    height: 200px;
+    background-color: green;
+    position: relative;
+    left: 450px;
+    animation: hole 3s infinite linear ;
+}
+
+@keyframes hole {
+    0%
+    {
+        left: 450px;
+    }
+    100%
+    {
+        left: -50px;
+    }
+}
