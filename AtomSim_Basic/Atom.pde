@@ -23,13 +23,17 @@ class Atom
   
   float getNegativity()
   {
-    return electrons - neutrons * electron_pull_negativity;
+    return (electrons - protons) * electron_pull_negativity;
   }
   float getWeight()
   {
-    return electrons * electron_weight + neutrons * neutron_weight + protons * proton_weight;
+    return ( electrons * electron_weight + neutrons * neutron_weight + protons * proton_weight ) * 100;
   }
   
+  float getWeightMod(Atom a)
+  {
+    return ( a.getWeight() / getWeight() );
+  }
   
   float getPull(Atom a)
   {
@@ -39,16 +43,25 @@ class Atom
     
     float d = pos.Distance(a.pos);
     
+    // Basic Bounce
     if (d < min_atom_distance)
     {
-      return -getWeight() * d / min_atom_distance;
+      return -getWeightMod(a) * (1- d / min_atom_distance);
+    }
+    
+    if (difference < 0.1) return 0;
+
+    
+    if (d < max_atom_distance)
+    {
+      float pullPow = 1 - d / max_atom_distance;
+      return  pullPow  * difference * getWeightMod(a);
     }
     
     
-    if (difference < 0.5) return 0;
   
+    return 0;
     
-    return d * difference;
   }
   
   
@@ -61,6 +74,9 @@ class Atom
       dir.x *= pull * t;
       dir.y *= pull * t;
       
+      
+      
+      
       vel.Add(dir);
     }
   
@@ -68,7 +84,7 @@ class Atom
   
   void update(float t)
   {
-    atomInteraction(t);
+    
     
     
     pos.x += vel.x * t;
@@ -98,7 +114,7 @@ class Atom
   }
   void draw()
   {
-    fill(255,255,255);
+    fill(electrons * 25,neutrons * 25,255);
     circle(pos.x,pos.y,6);
   }
 

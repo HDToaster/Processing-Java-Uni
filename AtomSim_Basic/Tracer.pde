@@ -2,27 +2,28 @@ class Tracer
 {
   
   ArrayList<SingleTrace> traces = new ArrayList<SingleTrace>();
-  
+  int tt;
   void updateTracers()
   {
-    for (var t : traces)
+    for (SingleTrace t : traces)
     {
-      t.t -= 0.1;
-      if (t.t < 0)
-      {
-        traces.remove(t);
-      }else{
-        circle(pos.x,pos.y,1);
-      }
+      
+        fill(255,255,255);
+        circle(t.pos.x,t.pos.y,4);
+     
     }
   }
   
   void Trace(Vector2 pos)
   {
-    SingleTrace t = new SingleTrace();
-    t.pos = pos;
-    t.t = 1;
-    traces.add(t);
+    if (tt % 4 == 0 )
+    {
+      SingleTrace t = new SingleTrace();
+      t.pos = new Vector2(pos.x,pos.y);
+      t.t = 12;
+      traces.add(t);
+    }
+    
   }
 }
 
